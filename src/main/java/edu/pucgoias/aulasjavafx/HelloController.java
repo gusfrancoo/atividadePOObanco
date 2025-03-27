@@ -5,6 +5,7 @@ import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.paint.Color;
 
 public class HelloController implements EventHandler<ActionEvent> {
 
@@ -28,13 +29,15 @@ public class HelloController implements EventHandler<ActionEvent> {
     @FXML
     private void botaoUmClicado(ActionEvent evento) {
         TratadorEvento trat = new TratadorEvento();
-        trat.setLabel(this.labelMensagem);
+        trat.changeLabel(this.labelMensagem, Color.BLUE);
         trat.handle(evento);
     }
 
     @FXML
     private void botaoDoisClicado(ActionEvent evento) {
         this.labelMensagem.setText("Ação botão 2");
+        this.labelMensagem.setTextFill(Color.GREEN);
+
     }
 
     @FXML
@@ -43,7 +46,9 @@ public class HelloController implements EventHandler<ActionEvent> {
     }
 
     private void handleButton(){
+
         this.labelMensagem.setText("Botão tratado por método externo");
+        this.labelMensagem.setTextFill(Color.PURPLE);
     }
 
 
